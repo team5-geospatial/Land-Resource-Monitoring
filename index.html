@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Analysis Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #343a40;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #007BFF;
+        }
+
+        /* Carousel Styling */
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            padding: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .table-of-contents:hover {
+            background: linear-gradient(135deg, #0062cc, #004bb5);
+        }
+
+        .table-of-contents h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 15px 0;
+        }
+
+        .toc-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .toc-link i {
+            margin-right: 10px;
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .toc-link:hover {
+            color: #f39c12;
+            transform: scale(1.05);
+        }
+
+        .toc-link:hover i {
+            transform: translateX(5px);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        .analysis-section {
+            padding: 50px 30px;
+            background-color: #f4f9fb;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: background-color 0.5s ease, transform 0.3s ease;
+        }
+
+        .analysis-section:hover {
+            transform: translateY(-10px);
+            background-color: #eef6fc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #0062cc;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .analysis-text {
+            padding: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .analysis-text h5 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .analysis-image img {
+            width: 100%;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .analysis-image img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(45deg, #343a40, #007bff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Social Media Icons in Footer */
+        footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #f39c12;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #007bff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Land Resource Monitoring</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#home"></a></li>
+                <li class="nav-item"><a class="nav-link" href="#about"></a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects"></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carousel Header -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <!-- Only the first item should have the "active" class -->
+            <div class="carousel-item active">
+                <img src="1.jpeg" class="d-block w-100" alt="First Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="2.jpg" class="d-block w-100" alt="Second Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="3.jpg" class="d-block w-100" alt="Third Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="4.jpeg" class="d-block w-100" alt="Fourth Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="5.jpg" class="d-block w-100" alt="Fifth Slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Table of Contents Section -->
+    <section id="about" class="table-of-contents">
+        <h3>Table of Contents</h3>
+        <ul class="toc-list">
+            <li><a href="#fractraldimensionanalysis" class="toc-link"><i class="fas fa-map-marked-alt"></i>LANDUSE AND LANDCOVER ANALYSIS</a></li>
+            <li><a href="#lisa" class="toc-link"><i class="fas fa-puzzle-piece"></i>LANDUSE MIXING ANALYSIS</a></li>
+        </ul>
+    </section>
+
+    <!--1st Sections Updated with Unique IDs -->
+    <section id="fractraldimensionanalysis" class="analysis-section">
+        <div class="section-title">LANDUSE AND LANDCOVER ANALYSIS</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="LULC.jpg" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h5>Land Use and Land Cover (LULC) Dynamics of Basirhat Block 1 (1993–2023)</h5>
+                    <p>This series of maps illustrates the temporal changes in Land Use and Land Cover (LULC) for Basirhat Block 1, spanning the years 1993, 2003, 2013, and 2023. The LULC classes include diverse land categories such as fish farms, rivers, vegetation, agriculture, urban areas, dry fallow lands, water bodies, and homestays with plantations (H.S.P.).</p>
+                    <h4>Key Insights:</h4>
+                    <p>Urbanization: A significant increase in urban areas (marked in red) is observed over the years, indicating rapid urban expansion.<br>
+                        Agricultural Decline: Agricultural lands have gradually decreased, likely due to urban encroachment and other land use changes.<br>
+                        Vegetation and Water Bodies: The reduction in vegetation cover and potential changes in water body extents highlight the environmental impact of human activities.<br>
+                        Fish Farms: The expansion of fish farming reflects local economic activities adapting to changing land use demands.<br>
+                        These maps were generated using high-resolution geospatial datasets and advanced GIS techniques, providing valuable insights into the land transformation processes of this region over three decades. This analysis supports sustainable land use planning and environmental conservation efforts in Basirhat Block 1.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+	<!--2nd Sections Updated with Unique IDs -->
+    <section id="lisa" class="analysis-section">
+        <div class="section-title">LANDUSE MIXING ANALYSIS</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-text">
+                    <h5> Land Use Mixing Analysis of Basirhat 1 Number Block (1993-2023)</h5>
+                    <p>This map illustrates the dynamic land use mixing of Basirhat 1 number block over three decades: 1993, 2003, 2013, and 2023. By analyzing these four time points, we can observe significant changes and trends in land use patterns within this region. The study utilizes high-resolution remote sensing data and advanced GIS techniques to accurately classify and visualize various land use categories.</p>
+                <H4>Key features of this analysis include:</H4>
+                 <p>Temporal Changes: A comparative view of land use distribution over 30 years, highlighting urban expansion, agricultural development, and other land use transformations.<br>
+
+                    Spatial Distribution: Detailed spatial patterns showcasing the mixing of residential, commercial, agricultural, and other land use types within the block.<br>
+                    
+                    Data Accuracy: Use of remote sensing data and GIS methodologies ensures precise mapping and reliable analysis of land use changes.<br>
+                    
+                    Analytical Techniques: Advanced GIS techniques were employed to analyze and present the land use mixing, providing insights into the area's development dynamics.<br>
+                    
+                    This map serves as a crucial tool for urban planners, policymakers, and researchers to understand the land use evolution in Basirhat 1 number block and to make informed decisions for sustainable development.</p>   
+
+                </div>
+                <div class="col-md-6 analysis-image">
+                    <img src="LUM.jpg" alt="Temporal Changes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+	
+    
+	
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 PortfolioByMdJahid | All Rights Reserved</p>
+        <div>
+            <a href="mailto:mdjahid.ac.in@gmail.com" class="text-white"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/md-jahid-221891292/" class="text-white"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/mdjahid07" class="text-white"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+   <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- Use slim.min.js for compatibility with Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
